@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react'
-// import URL from './index'
+import Search from './Search';
+import URL from './index'
 
 export default function AllPlayers() {
     const URL = 'https://fsa-puppy-bowl.herokuapp.com/api/2302-ACC-PT-WEB-PT-C/players'
     const [players, setPlayers] = useState([])
 
-    
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -24,7 +24,7 @@ export default function AllPlayers() {
   return (
     <div>
         {players.map((players, index) => (
-            <div key={index}>
+            <div className='card' key={index}>
                 <h2>{players.name}</h2>
                 <img src={players.imageUrl} />
                 <h3>{players.breed}</h3>
